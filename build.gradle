@@ -91,6 +91,7 @@ project(":core") {
 
 
     dependencies {
+        compile project(":networking")
         implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
         implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
@@ -113,6 +114,16 @@ project(":core") {
         implementation group: 'io.github.libktx', name: 'ktx-style', version: "$libKtxVersion"
         implementation group: 'io.github.libktx', name: 'ktx-vis', version: "$libKtxVersion"
         implementation group: 'io.github.libktx', name: 'ktx-vis-style', version: "$libKtxVersion"
-        implementation group: 'kryonet', name: 'kryonet', version: '2.21'
+       
     }
+}
+
+project(":networking") {
+    apply plugin: "kotlin"
+
+    dependencies {
+        compile group: 'kryonet', name: 'kryonet', version: '2.21'
+        compile 'com.esotericsoftware:kryo:5.0.0-RC4'
+    }
+
 }
